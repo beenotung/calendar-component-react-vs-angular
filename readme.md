@@ -3,6 +3,11 @@ Demo of a calendar component implemented in Angular and React
 ## Screenshot
 ![screenshot](./screenshot.png)
 
+Core Files:
+- [angular view](./booking-ng/src/app/app.component.html)
+- [angular controller](./booking-ng/src/app/app.component.ts)
+- [react view + controller](./booking-react/src/App.tsx)
+
 ## Comparison
 
 | | Angular | React |
