@@ -7,7 +7,7 @@ Demo of a calendar component implemented in Angular and React
 
 | | Angular | React |
 |---|---|---|
-| Effective line of code* | 62 | 77 |
+| Effective line of code* | 62 | 80 |
 | Build Time* (seconds) | 20 | 13 |
 | Built Size | 280 KiB | 224 KiB |
 | node_modules size | 396 MiB | 292 MiB |

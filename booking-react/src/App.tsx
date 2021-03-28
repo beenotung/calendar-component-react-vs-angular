@@ -23,6 +23,9 @@ function App() {
   const [days, setDays] = useState<Day[]>(initDays)
 
   function selectDay(dayToSet: Day) {
+    if (dayToSet.disabled) {
+      return
+    }
     let newDays = days.map(day =>
       day !== dayToSet
         ? day
