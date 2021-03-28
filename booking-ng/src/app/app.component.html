@@ -1,0 +1,23 @@
+<div class="calendar">
+  <div class="flex">
+    <div class="grow">March 2021</div>
+    <div class="flex">
+      <div class="day">{{ '<' }}</div>
+      <div class="day">{{ '>' }}</div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="day text-gray" *ngFor="let weekDay of weekDays">{{ weekDay }}</div>
+  </div>
+  <div class="flex" *ngFor="let days of getDayWeeks()">
+    <div
+      class="day"
+      [ngClass]="day.currentMonth ? 'text-dark' : 'text-gray'"
+      [class.selected]="day.selected"
+      [class.disabled]="day.disabled"
+      (click)="selectDay(day)"
+      *ngFor="let day of days">{{ day.day }}</div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

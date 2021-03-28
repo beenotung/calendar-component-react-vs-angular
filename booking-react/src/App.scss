@@ -1,0 +1,44 @@
+.flex {
+  display: flex;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.text-dark {
+  color: black;
+}
+
+.text-gray {
+  color: gray;
+}
+
+.calendar {
+  width: min-content;
+
+  .day {
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+
+    &:hover {
+      background-color: lightblue;
+    }
+
+    &.selected {
+      background-color: cornflowerblue;
+      color: white;
+    }
+
+    &.disabled {
+      background-color: lightgray;
+      color: dimgray;
+    }
+  }
+}
