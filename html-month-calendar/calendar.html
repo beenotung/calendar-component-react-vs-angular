@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .header {
+        display: flex;
+      }
+      .week {
+        display: flex;
+      }
+      .day {
+        width: 3rem;
+        height: 3rem;
+        outline: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar">
+      <div class="header">
+        <div class="day">Sun</div>
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+      </div>
+      <div class="month">
+        <div class="week">
+          <div class="day">1</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let dom = {}
+      dom.month = document.querySelector('.month')
+
+      let template = {}
+      template.week = dom.month.querySelector('.week')
+      template.day = template.week.querySelector('.day')
+
+      template.day.remove()
+      template.week.remove()
+
+      function showMonth(year, month) {
+        let now = new Date()
+        now.setFullYear(year)
+        now.setMonth(month - 1)
+        now.setDate(1)
+
+        let weekNode = template.week.cloneNode(true)
+        dom.month.appendChild(weekNode)
+
+        // loop last month
+        for (let day = 0; day < now.getDay(); day++) {
+          let dayNode = template.day.cloneNode(true)
+          dayNode.textContent = ''
+          weekNode.appendChild(dayNode)
+        }
+
+        now.setMonth(now.getMonth() + 1)
+        now.setDate(now.getDate() - 1)
+        let numberOfDayInMonth = now.getDate()
+
+        // loop this month
+        for (let date = 1; date <= numberOfDayInMonth; date++) {
+          now.setDate(date)
+          if (now.getDay() == 0) {
+            weekNode = template.week.cloneNode(true)
+            dom.month.appendChild(weekNode)
+          }
+          let dayNode = template.day.cloneNode(true)
+          dayNode.textContent = date
+          weekNode.appendChild(dayNode)
+        }
+
+        // loop next month
+        for (let day = now.getDay() + 1; day <= 6; day++) {
+          let dayNode = template.day.cloneNode(true)
+          dayNode.textContent = ''
+          weekNode.appendChild(dayNode)
+        }
+      }
+
+      showMonth(2022, 4)
+    </script>
+  </body>
+</html>
